@@ -1,0 +1,41 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Plantilla para sincronizar datos {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+
+              <form role="form" method="post" action="">
+              
+                <div class="card-header">
+                  <h5 class="title">Plantilla</h5>
+                  <h3>El siguiente archivo es la plantilla que se va a usar para poder sincronizar todos los datos necesarios
+                    con Conpy (solo es necesario hacerlo una vez)
+                  </h3>
+                </div>
+
+               
+
+                <a href="/home/files/hojaPredeterminada.xlsx" download></a>
+                <div class="card-footer">
+                  <button type="submit" name="login" class="btn btn-fill btn-primary">descargar (no funciona)</button>
+                  
+                </div>
+                <div class="card-footer">
+                  descargar plantilla, clic <a href="/home/files/ejemploTxt.txt" download class="text-primary">Aquí</a>
+                </div>
+            </div>
+          </div>
+      </div>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

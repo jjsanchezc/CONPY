@@ -1,0 +1,104 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+<div class="col-md-8">
+  <div class="card">
+    <div class="card-header ">
+      <h6 class="title d-inline">Adjuntar plantilla</h6>
+      <h3>Por ahora, esta Pagina Principal va a ser para mostrar lo mas importante del dia ( o ir poniendo resumnes importantes y urgentes de cada pagina)</h3>
+    </div>
+  </div>
+</div>
+  
+
+<div class="col-lg-4 col-md-8">
+  <div class="card ">
+    <div class="card-header">
+      <h4 class="card-title">Ventas diarias</h4>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table tablesorter " id="">
+          <thead class=" text-primary">
+            <tr>
+              <th>
+                Producto
+              </th>
+              <th>
+                Country
+              </th>
+              <th>
+                City
+              </th>
+              <th class="text-center">
+                Precio
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Dakota Rice
+              </td>
+              <td>
+                Niger
+              </td>
+              <td>
+                Oud-Turnhout
+              </td>
+              <td class="text-center">
+                $36,738
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="card">
+    <div class="card-header ">
+      <h6 class="title d-inline">Descargar y Adjuntar plantilla</h6>
+    </div>
+    <div class="card-body">
+      <h5>El siguiente archivo es la plantilla que se va a usar para poder sincronizar todos los datos necesarios con Conpy (solo es necesario hacerlo una vez)</h5>
+      <a href="/home/files/hojaPredeterminada.xlsx" download></a>
+      descargar plantilla, clic <a href="/home/files/ejemploTxt.txt" download class="text-primary">Aquí</a>
+      <button type="submit" name="login" class="btn btn-fill btn-primary">descargar (no funciona)</button>
+    </div>
+    <div class="card-footer">
+      <h5>El siguiente espacio sirve para adujuntar el archivo de la plantilla (ya con los datos), esto sirve para poder sincronizar los datos con CONPY</h5>
+      <h2>upload</h2>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name='documento'>
+        <button type ='submit'>upload</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      demo.initDashboardPageCharts();
+
+    });
+  </script>
+
+{% endblock javascripts %}

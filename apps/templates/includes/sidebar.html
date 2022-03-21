@@ -1,0 +1,82 @@
+
+
+    <div class="sidebar">
+      <div class="sidebar-wrapper">
+        <div class="logo">
+          <title target="_blank" rel="sponsored noopener noreferrer" 
+             class="simple-text logo-normal">
+            CONPY
+        </title>
+        </div>
+
+        <ul class="nav">
+        {% if request.user.is_authenticated %}
+
+          <li class="{% if 'index' in segment %} active {% endif %}">
+            <a href="/">
+              <i class="tim-icons icon-chart-pie-36"></i>
+              <p>Pagina Principal</p>
+            </a>
+          </li>
+
+          <li class="{% if 'maps' in segment %} active {% endif %}">
+            <a href="/OPC1.html">
+              <i class="tim-icons icon-pin"></i>
+              <p>OPC1(PIG)</p>
+            </a>
+          </li>
+
+          <li class="{% if 'page-user' in segment %} active {% endif %}">
+            <a href="/OPC2.html">
+              <i class="tim-icons icon-single-02"></i>
+              <p>Opc2(perfil)</p>
+            </a>
+          </li>
+
+          <li class="{% if 'tables' in segment %} active {% endif %}">
+            <a href="/OPC3.html">
+              <i class="tim-icons icon-puzzle-10"></i>
+              <p>Opc3(tablas)</p>
+            </a>
+          </li>
+
+          <li class="{% if 'typography' in segment %} active {% endif %}">
+            <a href="/OPC4.html">
+              <i class="tim-icons icon-align-center"></i>
+              <p>opc4(tipoDeLetra)</p>
+            </a>
+          </li>
+
+          <li class="{% if 'typography' in segment %} active {% endif %}">
+            <a href="/OPC5.html">
+              <i class="tim-icons icon-align-center"></i>
+              <p>opc5(algoX)</p>
+            </a>
+          <li>
+
+          <li class="{% if 'icons' in segment %} active {% endif %}">
+            <a href="/OPC6.html">
+              <i class="tim-icons icon-coins"></i>
+              <p>OPC6(iconos)</p>
+            </a>
+          </li>
+
+          <li class="{% if 'notifications' in segment %} active {% endif %}">
+            <a href="/OPC7.html">
+              <i class="tim-icons icon-bell-55"></i>
+              <p>OPC7(Notificaciones)</p>
+            </a>
+          </li>
+
+            <a href="{% url 'logout' %}" >
+              <i class="tim-icons icon-button-power"></i>
+              <p>Logout</p>
+            </a>
+          </li>
+
+          {% endif %}
+                    
+        </ul>
+        
+      </div>
+    </div>
