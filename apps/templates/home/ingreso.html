@@ -1,0 +1,55 @@
+
+{% extends "layouts/base.html" %}
+{% block title %} ingreso {% endblock %} 
+
+{% block content %}
+<body>     
+    <form id="form1" runat="server">    
+    <div>                  
+      
+    <h2 align="center"> Ingresos:</h2>    
+    <table id="table1"; cellspacing="2px" cellpadding="15%"; align="center"> 
+</div>     
+      <tr>    
+            <td  align="center" class="style1">
+                  Job Title:<input type="text" name="Job Title" /> 
+            </td> 
+      </tr>    
+      <tr>    
+            <td align="center">
+                  Description:
+            <textarea rows="3" cols="15" name="Description"></textarea>
+            </td>    
+               
+      </tr>
+      <p align="center">esta tabla deberia aparecer cuando el usuario pidiera que se agregaran datos nuevos</p>  
+      <tr>
+            <td>
+                  Work Status    
+                  <input type="checkbox" name="vehicle" value="Bike">Full Time    
+                  <input type="checkbox" name="vehicle" value="Bike"> Part Time Salary      
+                  <select name="cars">    
+                  <option value="Rupees">Rupees</option>    
+                  <option value="Euro">Euro</option>    
+                  <option value="US Dollar" selected="selected">US Dollar</option>    
+                  </select>    
+                  <select name="time">    
+                  <option value="Yearly" selected="selected">Yearly</option>    
+                  <option value="Half Yearly">Half Yearly</option>    
+                  </select>    
+            </td>                
+      </tr>  
+        </select>     
+      <tr>
+            <td>
+         <input type="button" value="Submit" align="right">    
+         <input type="button" value="Reset"> 
+            </td>
+      </tr>
+       
+       
+    </table>
+    </form>
+</body>
+
+{% endblock content %}

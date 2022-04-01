@@ -2,6 +2,7 @@
 """
 Copyright (c) 2019 - present AppSeed.us
 """
+import os
 from django.shortcuts import render
 from fileinput import filename
 from django import template
@@ -9,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
+from core import settings
 
 @login_required(login_url="/login/")
 def index(request):
@@ -52,3 +54,4 @@ def upload(request):
         print(uploaded_file.size)
 
     return render(request,'upload-download.html')
+
