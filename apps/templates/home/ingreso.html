@@ -1,0 +1,90 @@
+
+{% extends "layouts/base.html" %}
+{% block title %} ingreso {% endblock %} 
+
+{% block content %}
+<div class="card card-chart">
+      
+
+    <div>         
+      <div class="col-sm-20">
+            <h2 align="center"> Ingresos:</h2> 
+            {% if msg %}
+            <p class="text-danger"align="center">{{ msg }}</p>
+            {% else %}  
+            <p align="center">esta tabla deberia aparecer cuando el usuario pidiera que se agregaran datos nuevos</p>   
+            {% endif %} 
+            <table id="table1"; cellspacing="2px" cellpadding="15%"; align="center"> 
+            <div aling="right"class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+              <label class="btn btn-sm btn-primary btn-simple active" id="0">
+                <input type="radio" name="options" checked>
+                <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">añadir</span>
+                <span class="d-block d-sm-none">
+                  <i class="tim-icons icon-single-02"></i>
+                </span>
+              </label>
+              <label class="btn btn-sm btn-primary btn-simple" id="1">
+                <input type="radio" class="d-none d-sm-none" name="options">
+                <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">editar</span>
+                <span class="d-block d-sm-none">
+                  <i class="tim-icons icon-gift-2"></i>
+                </span>
+              </label>
+              <label class="btn btn-sm btn-primary btn-simple" id="2">
+                <input type="radio" class="d-none" name="options">
+                <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">borrar</span>
+                <span class="d-block d-sm-none">
+                  <i class="tim-icons icon-tap-02"></i>
+                </span>
+              </label>
+            </div>
+                    
+<form method="post" action="/soporte/" name="1">  
+      {% csrf_token %}
+<tr>    
+            <td  align="center" class="style1">
+                  origen:<input type="text" name="origen" /> 
+            </td> 
+      </tr>    
+      <tr>    
+            <td align="center">
+                  comentario(opcional):
+            <textarea rows="3" cols="15" name="descripcion"></textarea>
+            </td>    
+               
+      </tr>
+
+      <tr>    
+            <td  align="center" class="style1">
+                  cantidad:<input type="text" name="cantidad" />     
+                  <select name="moneda">       
+                  <option value="Euro">Euro</option>    
+                  <option value="US Dollar" selected="selected">US Dollar</option>    
+                  </select>  
+            </td> 
+      </tr> 
+        </select> 
+
+      <tr>    
+            <td  align="center" class="style1">    
+                  <select name="tipo">       
+                  <option value="ingreso"selected="selected">ingresos</option>    
+                  <option value="gasto" >gastos</option> 
+                  </select>  
+            </td> 
+      </tr> 
+      <br>
+      <tr>
+            <td>
+                  <input type="submit" value="Submit" align="right">    
+                  <input type="reset" value="Reset"> 
+            </td>
+      </tr>
+    </table>
+</form>    
+
+</div>
+
+
+
+{% endblock content %}

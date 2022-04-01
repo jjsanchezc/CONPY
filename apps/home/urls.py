@@ -11,6 +11,7 @@ urlpatterns = [
     # The home page
     path('', views.index, name='home'),
     path('upload-download/', views.upload, name='upload-download'),
+    path('soporte/',views.read_input),
 
     # Matches any html file
     re_path(r'^.*\.*', views.pages, name='pages'),
