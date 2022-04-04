@@ -76,7 +76,7 @@ def read_input(request):
         cant=request.POST.get('cantidad')
         if cant!="":
             try:
-                dm.ingresos(str(org),str(des),float(cant))
+                dm.add_ingresos(str(org),str(des),float(cant))
             except ValueError:
                 msg="no se han introducido datos correctos en cantidad"
         else:
