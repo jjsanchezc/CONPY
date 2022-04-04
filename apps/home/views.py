@@ -10,7 +10,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
-import apps.home.dataManagement.ingresos.manage as dm
+import apps.home.dataManagement.ingresos.manage as idm
+import apps.home.dataManagement.gastos.manage as gdm
 from core import settings
 
 
@@ -59,9 +60,8 @@ def upload(request):
 
 
 
-
 @login_required(login_url="/login/")
-def read_input(request):
+def read_new_input(request):
     """metodo para leer el input de ingresos, este llama a las 
     funciones manage.py para poder procesarlos
 
@@ -69,24 +69,40 @@ def read_input(request):
         django.http.response.HttpResponse: devuelve a la pagina
          de ingresos
     """
+    descr=request.POST.get('descripcion')
+    cant=request.POST.get('cantidad')
     msg=None
+    exito=None
     if request.POST.get('tipo')=='ingreso':
-        org=request.POST.get('origen')
-        des=request.POST.get('descripcion')
-        cant=request.POST.get('cantidad')
-        if cant!="":
+        
+        org=request.POST.get('origen/destino')
+
+        if cant!="" and org!="" :
             try:
-                dm.add_ingresos(str(org),str(des),float(cant))
+                idm.add_ingresos(str(org),str(descr),float(cant))
+                exito="se ha añadido con exito a la base de datos"
             except ValueError:
                 msg="no se han introducido datos correctos en cantidad"
         else:
             msg="Has dejado espacios obligatorios vacios"
-    elif request.POST.get('tipo')=='gastos':
-        """ESTO SE VA A PONER CUANDO SE HAYA CREADO TODA LA PARTE
-         DE INGRESOS YA QUE ES PRACTICAMENTE LO MISMO"""
+    elif request.POST.get('tipo')=='gasto':
+        destino=request.POST.get('origen/destino')
+
+        if cant!="" and destino!="" :
+            try:
+                gdm.add_gastos(str(destino),str(descr),float(cant))
+                exito="se ha añadido con exito a la base de datos"
+            except ValueError:
+                msg="no se han introducido datos correctos en cantidad"
+        else:
+            msg="Has dejado espacios obligatorios vacios"
         print("gastos")
     else:
         print("no entré")
 
 
-    return render(request,'home/ingreso.html',{"msg":msg})
+    return render(request,'home/ingreso.html',{"msg":msg,"exito":exito})
+
+
+def a(request):
+    print("--------------------------------------------\nhola soy a")

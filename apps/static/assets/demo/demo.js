@@ -105,6 +105,14 @@ demo = {
       options: gradientChartOptionsConfiguration
     });
   },
+ 
+  changeColor:function(newColor){
+    ctx = document.getElementById('remove');
+    elem.style.color=newColor;
+    console.log("entra en el metodo");
+  },
+
+
 
   initDashboardPageCharts: function() {
 
